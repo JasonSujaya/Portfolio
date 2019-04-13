@@ -17,7 +17,7 @@ export default class Header extends Component {
   };
 
   handleScroll = () => {
-    if (window.scrollY > 10) {
+    if (window.scrollY > 300) {
       this.setState({ headerShow: false });
     } else {
       this.setState({ headerShow: true });
@@ -34,7 +34,9 @@ export default class Header extends Component {
         <AppBar
           position="fixed"
           style={{
-            backgroundColor: this.state.headerShow ? "#2f2f2f" : "transparent",
+            backgroundColor: this.state.headerShow
+              ? "transparent" //`rgba(255, 255, 255,0.2)`
+              : `rgba(30, 30, 30,1)`,
             boxShadow: "none",
             padding: "10px 0px"
           }}
