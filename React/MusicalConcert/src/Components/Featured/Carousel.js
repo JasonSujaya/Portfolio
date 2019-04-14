@@ -30,7 +30,6 @@ const Carousel = () => {
                 height: `${window.innerHeight}px`
               }}
             />
-            image1
           </div>
           <div>
             <div
@@ -40,7 +39,6 @@ const Carousel = () => {
                 height: `${window.innerHeight}px`
               }}
             />
-            image1
           </div>
           <div>
             <div
@@ -50,7 +48,6 @@ const Carousel = () => {
                 height: `${window.innerHeight}px`
               }}
             />
-            image1
           </div>
         </Slider>
       </div>
