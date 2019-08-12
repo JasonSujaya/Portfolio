@@ -5,7 +5,7 @@
 }
 
 html {
-  font-size: 8px;
+  font-size: 10px;
 }
 
 a {
@@ -147,6 +147,15 @@ body {
   font-weight: 400;
   letter-spacing: 1.75rem;
   animation: moveInRight 1s ease-out;
+}
+
+.row {
+  max-width: 114rem;
+  background-color: #55c57a;
+  margin: 0 auto;
+}
+.row:not(:last-child) {
+  margin-bottom: 8rem;
 }
 
 /*# sourceMappingURL=style.css.map */

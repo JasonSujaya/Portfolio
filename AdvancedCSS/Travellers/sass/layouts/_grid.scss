@@ -1,0 +1,12 @@
+.row {
+  max-width: $grid-width;
+  background-color: $color-primary;
+  margin: 0 auto;
+
+  &:not(:last-child) {
+    margin-bottom: $gutter-vertical;
+  }
+
+  .col-1-of-2 {
+  }
+}
