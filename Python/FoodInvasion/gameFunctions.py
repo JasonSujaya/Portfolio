@@ -1,16 +1,17 @@
 import sys
 
 import pygame
+from inGame.bullets import Bullet
 
 
-def checkEvents(ship):
+def checkEvents(ai_settings, screen, ship, bullets):
     """ Respond to keypress and mouse events"""
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             sys.exit()
 
         elif event.type == pygame.KEYDOWN:
-            check_keydown_events(event, ship)
+            check_keydown_events(event, ai_settings, screen, ship, bullets)
             if event.key == pygame.K_RIGHT:
                 # Move ship to the right
                 ship.rect.centerx += 1
@@ -28,16 +29,18 @@ def checkEvents(ship):
             check_keyup_events(event, ship)
 
 
-def check_keydown_events(event, ship):
-    """Respond to keypresses to TRUE."""
+def check_keydown_events(event, ai_settings, screen, ship, bullets):
+    """Respond to keypresses to TRUE for movement."""
     if event.key == pygame.K_RIGHT:
         ship.moving_right = True
-    if event.key == pygame.K_LEFT:
+    elif event.key == pygame.K_LEFT:
         ship.moving_left = True
-    if event.key == pygame.K_UP:
+    elif event.key == pygame.K_UP:
         ship.moving_top = True
-    if event.key == pygame.K_DOWN:
+    elif event.key == pygame.K_DOWN:
         ship.moving_bot = True
+    elif event.key == pygame.K_SPACE:
+        fire_bullet(ai_settings, screen, ship, bullets)
 
 
 def check_keyup_events(event, ship):
@@ -56,3 +59,25 @@ def updateScreen(ai_settings, screen, ship):
     pygame.display.flip()
     screen.fill(ai_settings.bg_color)
     ship.blitme()
+
+
+def update_screen(ai_settings, screen, ship, bullets):
+    """Redraw all bullets behind ship and aliens"""
+    for bullet in bullets:
+        bullet.draw_bullet()
+
+
+def update_bullets(bullets):
+    # Update bullet positions
+    bullets.update()
+
+    for bullet in bullets.copy():
+        if bullet.rect.bottom <= 0:
+            bullets.remove(bullet)
+
+
+def fire_bullet(ai_settings, screen, ship, bullets):
+    # Create a new bullet and add it to the bullets group.
+    if len(bullets) < ai_settings.bullet_allowed:
+        new_bullet = Bullet(ai_settings, screen, ship)
+        bullets.add(new_bullet)

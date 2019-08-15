@@ -1,5 +1,6 @@
 import sys
 import pygame
+from pygame.sprite import Group
 
 # Custom Module Imports
 from config import Settings
@@ -17,13 +18,20 @@ def run_game():
         (ai_settings.screen_width, ai_settings.screen_height))
     pygame.display.set_caption("Food Invasion")
 
-    # Make a ship.u
+    # Make a ship
     ship = Ship(ai_settings, screen)
+
+    # Make a group to store the bullets
+    bullets = Group()
+
     # Main loop start
     while True:
-        gf.checkEvents(ship)
+        gf.checkEvents(ai_settings, screen, ship, bullets)
         ship.update()
         gf.updateScreen(ai_settings, screen, ship)
+
+        gf.update_screen(ai_settings, screen, ship, bullets)
+        gf.update_bullets(bullets)
 
 
 run_game()

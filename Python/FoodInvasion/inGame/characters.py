@@ -34,7 +34,6 @@ class Ship():
         elif self.moving_left and self.rect.left > 0:
             self.centerx -= self.ai_settings.ship_speed_factor
         elif self.moving_top and self.rect.top > 650:
-            print(self.rect.top)
             self.centery -= self.ai_settings.ship_speed_factor
         elif self.moving_bot:
             self.centery += self.ai_settings.ship_speed_factor
