@@ -1,0 +1,4 @@
+1. Have to add better rule for validation in character.py def update(self) :
+    up/ down
+    same key press up-right or up-left, etc 
+2. 
