@@ -7,7 +7,7 @@ body {
   border-bottom: #008fd691 3px solid;
   opacaity: 0.8;
 }
-/* 
+
 #home-section {
   background: url("../img/home.jpg");
   background-repeat: no-repeat;
@@ -23,7 +23,7 @@ body {
   width: 100%;
   min-height: 700px;
   background: rgba(0, 0, 0, 0.7);
-} */
+}
 
 #home-section .home-inner {
   padding-top: 150px;
