@@ -22,5 +22,9 @@
     "not dead",
     "not ie <= 11",
     "not op_mini all"
-  ]
+  ],
+  "description": "A youtube browsing application.",
+  "main": "index.js",
+  "author": "",
+  "license": "ISC"
 }
